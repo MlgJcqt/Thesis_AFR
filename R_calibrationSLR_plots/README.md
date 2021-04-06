@@ -1,6 +1,6 @@
 # R_calibrationSLR_plots
 
-[1] Sets of functions 
+**[1] Sets of functions**
 
 - CalibrationFunc.R 
 
@@ -15,7 +15,7 @@
 -> customized theme for ggplot2
 
 
-[2] Apply functions 
+**[2] Apply functions**
 
 - Calibration_LR.R 
 
