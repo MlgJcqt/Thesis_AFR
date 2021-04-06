@@ -15,9 +15,9 @@
 
 3. Morpho_scores_list.py
 
-> Get candidates list (img1|img2|score) from Morphoface systems raw output files
+> Making candidates list (img1|img2|score) from Morphoface systems raw output files
 
 
 4. investig_rank.py
 
-> Retrieve ranks of searched POI in candidates lists
+> Retrieving ranks of searched POI in candidates lists
