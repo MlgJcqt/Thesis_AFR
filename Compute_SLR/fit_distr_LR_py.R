@@ -1,14 +1,14 @@
 # Name : fit_distr_LR_py.R
-# Objective : calculer SLR sous H1 et H2 a partir de distribution GEV ou KDE ou Normale ou Weibull
+# Objective : compute SLR under H1 et H2 from GEV / KDE / Normale / Weibull distributions
 # Created by : mjacquet
 # Last version : 20.12.2020
 
 ######## METHODE
-# Script avec solution pour distrib GEV, Normale, Weibull et KDE --> choisir méthode sous H1 et H2 (cf l.52-113 et l.142-184)
+# Choose GEV / KDE / Normale / Weibull fitting method under H1 et H2 (cf l.52-113 and l.142-184)
 
 
 ######## DATA FORM
-# csv 3 col :      name img1 | name img 2 | score value
+# csv 3 col :      name img1 ; name img 2 ; score value
 
 
 library(tidyr)
@@ -20,14 +20,14 @@ library(stats)
 library(reticulate)
 library(stringr)
 
-path1 <- "C:/Users/mjacquet/Scores/Poubelle_temp/temp_exe_R_py/intra/"
-path2 <- "C:/Users/mjacquet/Scores/Poubelle_temp/temp_exe_R_py/inter/"
-path3 <- "C:/Users/mjacquet/Scores/Poubelle_temp/temp_exe_R_py/comp/"
+path1 <- "C:/Users/MlgJcqt/Scores/Poubelle_temp/temp_exe_R_py/intra/"
+path2 <- "C:/Users/MlgJcqt/Scores/Poubelle_temp/temp_exe_R_py/inter/"
+path3 <- "C:/Users/MlgJcqt/Scores/Poubelle_temp/temp_exe_R_py/comp/"
 
 
 ######### A CHANGER SELON DATA DANS PYTHON
-path4 <- "C:/Users/mjacquet/LRs/anch_Tanch/H1/"
-path5 <- "C:/Users/mjacquet/LRs/anch_Tanch/H2/"
+path4 <- "C:/Users/MlgJcqt/LRs/anch_Tanch/H1/"
+path5 <- "C:/Users/MlgJcqt/LRs/anch_Tanch/H2/"
 #########
 
 pathintra <- list.files(path1, pattern = ".csv", full.names = FALSE)
@@ -48,7 +48,7 @@ score_compH1 <- compH1[[3]]
 # parametres distribution scores intra/inter puis compute LR
 
 mat <- matrix(ncol = 4, nrow = length(score_compH1), byrow = TRUE)
-colnames(mat)<-c("Score", "Numerateur", "Denominateur", "LR")
+colnames(mat)<-c("Score", "Numerator", "Denominator", "LR")
 
 ### GEV
 parameters.a <- fevd(a, method = "MLE", type = "GEV")
@@ -138,7 +138,7 @@ img_compH2 <- (compH2[1:2])
 score_compH2 <- compH2[[3]]
 
 mat2 <- matrix(ncol = 4, nrow = length(score_compH2), byrow = TRUE)
-colnames(mat2)<-c("Score", "Numerateur", "Denominateur", "LR")
+colnames(mat2)<-c("Score", "Numerator", "Denominator", "LR")
 
 ### GEV
 for (i in 1:length(score_compH1)){
@@ -184,7 +184,7 @@ for (i in 1:length(score_compH1)){
 #   mat[i,1:4] <- c(s, num, denom, LR)
 # }
 
-# export SLR dans csv
+# export SLR in csv
 mat2 <- as.data.frame(mat2)
 complet2 <- cbind(img_compH2, mat2)
 
