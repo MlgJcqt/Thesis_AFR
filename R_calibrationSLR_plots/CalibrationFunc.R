@@ -38,7 +38,7 @@ data.calibrate.pava = function( data , method = "laplace"){
 #To get the calibrated LR in the same format as the PAVA calibrated LR
 #a list LR.cal.ss and LR.cal.ds as obtained from calibrate.set()
 
-data_to_list_LR2 <- function(LRres, colLR = "SLR.brut"){
+data_to_list_LR <- function(LRres, colLR = "SLR.brut"){
   data1 <- as.data.frame(LRres) %>% subset(LRres$h == "hp")
   data2 <- as.data.frame(LRres) %>% subset(LRres$h == "hd")
   LR.ss <- data1 %>%
